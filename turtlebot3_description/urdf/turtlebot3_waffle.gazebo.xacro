@@ -155,10 +155,10 @@
               <format>R8G8B8</format>
           </image>
           <depth_camera></depth_camera>
-          <clip>
+          <!-- <clip>
               <near>0.03</near>
               <far>100</far>
-          </clip>
+          </clip> -->
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
         <baseline>0.2</baseline>
@@ -171,7 +171,8 @@
         <pointCloudTopicName>depth/points</pointCloudTopicName>
         <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
         <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
-        <pointCloudCutoff>0.4</pointCloudCutoff>
+        <pointCloudCutoff>0.0</pointCloudCutoff>
+        <pointCloudCutoffMax>1000.0</pointCloudCutoffMax>
             <hackBaseline>0.07</hackBaseline>
             <distortionK1>0.0</distortionK1>
             <distortionK2>0.0</distortionK2>
@@ -190,10 +191,10 @@
   <gazebo>
     <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
       <alwaysOn>true</alwaysOn>
-      <updateRate>50.0</updateRate>
+      <updateRate>30.0</updateRate>
       <bodyName>base_footprint</bodyName>
       <topicName>ground_truth/state</topicName>
-      <gaussianNoise>0.01</gaussianNoise>
+      <!-- <gaussianNoise>0.01</gaussianNoise> -->
       <frameName>world</frameName>
       <xyzOffsets>0 0 0</xyzOffsets>
       <rpyOffsets>0 0 0</rpyOffsets>
@@ -203,7 +204,7 @@
   <gazebo>
     <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
       <alwaysOn>true</alwaysOn>
-      <updateRate>50.0</updateRate>
+      <updateRate>30.0</updateRate>
       <bodyName>camera_rgb_frame</bodyName>
       <topicName>ground_truth/camera</topicName>
       <gaussianNoise>0.01</gaussianNoise>
